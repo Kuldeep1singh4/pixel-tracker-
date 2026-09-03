@@ -204,6 +204,7 @@ body {
   .canvas-wrapper canvas {
     left: 0 !important;
   }
+  
   /* Fit timer to mobile screen and keep above nav bar */
   .timer-overlay {
     width: calc(100% - 40px);
