@@ -20,20 +20,22 @@ export default function Auth() {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
       } else {
-        // 1. Sign up the user
-        const { data, error } = await supabase.auth.signUp({ email, password });
+        // Sign up and bundle the username securely into the user's metadata
+        const { error } = await supabase.auth.signUp({ 
+          email, 
+          password,
+          options: {
+            data: {
+              username: username
+            }
+          }
+        });
+        
         if (error) throw error;
         
-        // 2. Insert their chosen username into the profiles table
-        if (data?.user) {
-          const { error: profileError } = await supabase
-            .from('profiles')
-            .insert([{ id: data.user.id, username }]);
-            
-          if (profileError) throw profileError;
-          alert("Registration successful! You can now log in.");
-          setIsLogin(true);
-        }
+        // The SQL trigger now handles the profile creation automatically!
+        alert("ACCOUNT CREATED! Check your email to verify your link before logging in.");
+        setIsLogin(true);
       }
     } catch (error) {
       setErrorMsg(error.message);
