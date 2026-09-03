@@ -183,12 +183,16 @@ body {
   
   div[style*="width: 280px"] {
     width: 100% !important;
+    min-height: 350px !important;
     box-sizing: border-box;
   }
 
-  canvas {
+  canvas, spline-viewer {
     width: 100% !important;
-    height: auto !important;
+    min-height: 350px !important;
+    height: 350px !important;
+    display: block !important;
+    margin: 0 auto;
   }
   
   /* Fit timer to mobile screen and keep above nav bar */
