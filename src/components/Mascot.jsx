@@ -273,13 +273,15 @@ export default function Mascot({ entriesMap = {}, tasks = [] }) {
     };
   }, [activeMascot]); 
 
+  
   return (
-    <div style={{ display: 'flex', gap: '20px', marginBottom: '30px', alignItems: 'stretch' }}>
+    <div className="mascot-wrapper" style={{ display: 'flex', gap: '20px', marginBottom: '30px', alignItems: 'stretch' }}>
       
-      <div style={{
+      <div className="mood-box" style={{
         background: 'white', border: '4px solid var(--text-dark)', padding: '12px',
         boxShadow: '6px 6px 0px var(--text-dark)', width: '280px', flexShrink: 0,
-        display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
+        display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+        boxSizing: 'border-box'
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', fontSize: '0.85rem' }}>
           <div style={{ color: 'var(--secondary-accent)', fontWeight: 'bold', marginBottom: '5px' }}>MOOD:<br/>{status}</div>
@@ -295,7 +297,7 @@ export default function Mascot({ entriesMap = {}, tasks = [] }) {
         </button>
       </div>
 
-      <div style={{
+      <div className="canvas-wrapper" style={{
         flexGrow: 1,
         borderBottom: '4px solid var(--text-dark)', 
         position: 'relative'
@@ -316,3 +318,4 @@ export default function Mascot({ entriesMap = {}, tasks = [] }) {
     </div>
   );
 }
+

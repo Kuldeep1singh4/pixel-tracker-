@@ -176,25 +176,34 @@ body {
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Stack the Mascot layout vertically on phones */
-  div[style*="alignItems: stretch"] {
-    flex-direction: column !important;
-  }
   
-  div[style*="width: 280px"] {
-    width: 100% !important;
-    min-height: 350px !important;
-    box-sizing: border-box;
+  
+/* Safely stack the Mood Box and Mascot on mobile */
+  .mascot-wrapper {
+    flex-direction: column-reverse !important; /* Puts the mascot ON TOP of the mood box */
+    align-items: center !important;
   }
 
-  canvas, spline-viewer {
+  /* Allow mood box to fill the mobile width safely */
+  .mood-box {
     width: 100% !important;
-    min-height: 350px !important;
-    height: 350px !important;
-    display: block !important;
+    max-width: 350px !important;
     margin: 0 auto;
   }
-  
+
+  /* Force the canvas container to stay open so the mascot is visible */
+  .canvas-wrapper {
+    width: 100% !important;
+    height: 130px !important;
+    min-height: 130px !important;
+    overflow: hidden !important; 
+    margin-bottom: 15px;
+  }
+
+  /* Make sure the canvas starts at the edge */
+  .canvas-wrapper canvas {
+    left: 0 !important;
+  }
   /* Fit timer to mobile screen and keep above nav bar */
   .timer-overlay {
     width: calc(100% - 40px);
