@@ -135,7 +135,7 @@ export default function DetailModal({ type, item, entriesMap, taskLogs, tasks, o
       </div>
       
       {/* FIXED FOOTER */}
-      <button className="retro-btn" style={{ width: '100%', marginTop: '20px', marginBottom: '100px' }} onClick={onClose}>
+      <button className="retro-btn" style={{ width: '100%', marginTop: '20px', marginBottom: '65px' }} onClick={onClose}>
         Close
       </button>
     </div>
